@@ -3,6 +3,8 @@ package emanuelrichieri.mutantdetector.service.implementation;
 import java.util.List;
 import java.util.Objects;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,6 @@ import emanuelrichieri.mutantdetector.io.DnaDTO;
 import emanuelrichieri.mutantdetector.io.DnaStatsDTO;
 import emanuelrichieri.mutantdetector.service.IDnaService;
 import emanuelrichieri.mutantdetector.service.IMutantDetectorService;
-import emanuelrichieri.mutantdetector.util.Logger;
 import emanuelrichieri.mutantdetector.util.exception.InvalidDnaException;
 import emanuelrichieri.mutantdetector.util.exception.RepositoryException;
 
@@ -24,9 +25,9 @@ public class DnaService implements IDnaService {
 	private IDnaRepository repository;
 	
 	@Autowired
-	private IMutantDetectorService mutantDetector;
+	private IMutantDetectorService mutantDetectorService;
 	
-	private Logger logger = Logger.getLogger("DnaService");
+	private Logger logger = LoggerFactory.getLogger("DnaService");
 	
 	@Override
 	public DnaStatsDTO getStats() throws RepositoryException {
@@ -58,7 +59,7 @@ public class DnaService implements IDnaService {
 
 	@Override
 	public Boolean isMutant(DnaDTO dnaDTO) throws InvalidDnaException, RepositoryException {
-		Boolean isMutant = this.mutantDetector.isMutant(dnaDTO.getDna());
+		Boolean isMutant = this.mutantDetectorService.isMutant(dnaDTO.getDna());
 		DnaClassification classification = isMutant ? DnaClassification.MUTANT : DnaClassification.HUMAN;
 		
 		Dna dna = this.repository.findByDnaSequence(dnaDTO.getDna());

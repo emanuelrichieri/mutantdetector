@@ -9,9 +9,9 @@ public class DnaStatsDTO {
 	public DnaStatsDTO() { }
 
 	public DnaStatsDTO(Long countHumanDna, Long countMutantDna, Double ratio) {
-		this.count_human_dna = countHumanDna;
-		this.count_mutant_dna = countMutantDna;
-		this.ratio = ratio;
+		this.setCount_human_dna(countHumanDna);
+		this.setCount_mutant_dna(countMutantDna);
+		this.setRatio(ratio);
 	}
 	
 	public Long getCount_mutant_dna() {

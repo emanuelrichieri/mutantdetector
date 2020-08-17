@@ -15,7 +15,6 @@ import emanuelrichieri.mutantdetector.io.ResponseEntityBuilder;
 import emanuelrichieri.mutantdetector.service.IDnaService;
 import emanuelrichieri.mutantdetector.util.exception.InvalidDnaException;
 import emanuelrichieri.mutantdetector.util.exception.RepositoryException;
-import emanuelrichieri.mutantdetector.io.DnaStatsDTO;
 
 @RestController
 @RequestMapping("")
@@ -36,9 +35,7 @@ public class MutantRestController {
 			return ResponseDTO.badRequest(ex).build();
 		} catch (RepositoryException ex) {
 			return ResponseDTO.internalServerError(ex.getMessage(), ex.getException()).build();
-		} catch (Exception ex) {
-			return ResponseDTO.internalServerError(ex).build();
-		}
+		} 
 	}
 	
 	@GetMapping("/stats")

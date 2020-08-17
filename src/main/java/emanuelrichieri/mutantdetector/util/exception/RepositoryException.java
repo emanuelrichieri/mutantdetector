@@ -6,7 +6,7 @@ public class RepositoryException extends Exception {
 	
 	public RepositoryException(String message, Exception ex) {
 		super(message);
-		this.exception = ex;
+		this.setException(ex);
 	}
 
 	public Exception getException() {

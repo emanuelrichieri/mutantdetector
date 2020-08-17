@@ -17,10 +17,10 @@ public class ResponseDTO {
 	private HttpStatus status;
 	
 	public ResponseDTO(Boolean success, String message, Object data, HttpStatus status) {
-		this.success = success;
-		this.message = message;
-		this.data = data;
-		this.status = status;
+		this.setSuccess(success);;
+		this.setMessage(message);
+		this.setData(data);
+		this.setStatus(status);
 	}
 	
 	public static ResponseDTO ok(String message) {
@@ -67,6 +67,8 @@ public class ResponseDTO {
 		if (Objects.nonNull(ex) && Objects.nonNull(ex.getMessage())) {
 			if (Objects.nonNull(message)) {
 				message += " :: ";
+			} else {
+				message = "";
 			}
 			message += ex.getMessage();
 		}
