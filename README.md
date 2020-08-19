@@ -43,7 +43,7 @@ Ejemplo de respuesta esperada (mutante):
 	            "TCACTG"
 	        ]
 	    },
-	    "status": "FORBIDDEN"
+	    "status": "OK"
     }
 
 Ejemplo de respuesta esperada (no-mutante):
