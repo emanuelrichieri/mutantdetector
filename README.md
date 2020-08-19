@@ -31,7 +31,7 @@ Ejemplo de respuesta esperada (mutante):
        HttpStatus: 200 - OK 
        Body (application/json):
     {
-	    "success": false,
+	    "success": true,
 	    "message": "MUTANT",
 	    "data": {
 	        "dna": [
